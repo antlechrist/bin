@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for i in *.wav; do
+	flac -V -8 --delete-input-file $i
+done

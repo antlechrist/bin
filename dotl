@@ -1,0 +1,13 @@
+#!/bin/sh
+
+BASEDIR=/usr/share/icons/Tango
+
+set -e
+
+cd $BASEDIR/scalable/apps
+sudo ln -s {t,T}erminal.svg
+
+for i in 128x128 16x16 22x22 24x24 32x32 48x48 64x64 72x72 96x96; do
+	cd ../../$i/apps
+	sudo ln -s {t,T}erminal.png
+done

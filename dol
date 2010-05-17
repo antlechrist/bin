@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for i in *.wav; do
+	lame -V 2 $i
+done

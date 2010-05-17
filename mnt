@@ -1,0 +1,41 @@
+#!/bin/sh
+#
+# ~/bin/mnt
+# 
+# Andrew Antle - http://antlechrist.org
+#
+
+set -e
+
+do_mount() {
+	for i in /dev/sdc{1,2,3,4}; do
+		if [ -b $i ]; then
+			mount -v $i
+		else
+			echo "$i did not mount"
+		fi
+	done
+}
+
+do_umount() {
+	for i in /mnt/sdc{1,2,3,4}; do
+		if [ -d $i ]; then
+			umount -v $i
+		else
+			echo "$i did not umount"
+		fi
+	done
+}
+
+case "$1" in
+	-m)
+		do_mount
+		;;
+	-u)
+		do_umount
+		;;
+	*)
+		echo "usage: `basename $0` {-m|-u}"
+		exit 1
+		;;
+esac

@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# ~/bin/bk
+#
+# Andrew Antle - http://antlechrist.org/
+#
+# Slam by Onyx.
+#
+
+bsdtar czf $1_`date '+%Y-%m-%d'`.tar.gz $1

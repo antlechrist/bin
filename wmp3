@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# ~/bin/wmp3
+# 
+# Andrew Antle - http://antlechrist.org
+#
+# Dependencies: cdparanoia dol
+
+do_convert() {
+	`dol`
+	rm *.wav
+
+	for i in *.mp3; do
+		rename '.cdda.wav' '' $i
+	done
+}
+
+do_rip() {
+	cdparanoia -B
+}
+
+case $1 in
+	-c)
+		do_convert
+		;;
+	-r)
+		do_rip
+		;;
+	*)
+		echo "usage: `basename $0` {-c|-r}"
+		exit 1
+		;;
+esac
