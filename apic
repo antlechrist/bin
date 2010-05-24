@@ -9,7 +9,7 @@ BACKUPDIR=/mnt/sdc1/backups/folder
 CONVERT=/usr/bin/convert
 ID3=/usr/bin/eyeD3
 IMAGE=folder.jpg
-TAGOPTIONS="--add-image=$IMAGE:FRONT_COVER --no-tagging-time-frame"
+TAGOPTIONS="--add-image=$IMAGE:FRONT_COVER"
 
 set -e
 

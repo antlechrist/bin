@@ -18,19 +18,19 @@
 #
 case "$1" in
 -a)
-	$RSYNC -avz --delete -e "$SSH -p $PORT" \
+	$RSYNC -avz --delete --exclude=$EXCLUDE -e "$SSH -p $PORT" \
 		$RUSER@$RHOST:$DIR/$USER/ $DIR/$USER/
 	;;
 -s)
-	$RSYNC -avz --delete -e "$SSH -p $PORT" \
+	$RSYNC -avz --delete --exclude=$EXCLUDE -e "$SSH -p $PORT" \
 		$DIR/$USER/ $RUSER@$RHOST:$DIR/$USER/
 	;;
 -d)
-	$RSYNC -avz --delete -e "$SSH -p $PORT" \
+	$RSYNC -avz --delete --exclude=$EXCLUDE -e "$SSH -p $PORT" \
 		$RUSER@$RHOST:$DIR/ $DIR/
 	;;
 -f)
-	$RSYNC -avz --delete -e "$SSH -p $PORT" \
+	$RSYNC -avz --delete --exclude=$EXCLUDE -e "$SSH -p $PORT" \
 		$DIR/ $RUSER@$RHOST:$DIR/
 	;;
 *)
