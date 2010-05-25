@@ -1,19 +1,16 @@
 #!/bin/sh
 #
 # ~/bin/sdf
-# 
 # Andrew Antle - http://antlechrist.org
-#
 # Plan 9 would do
 #     ls $HOME | grep "^\."
-#
 
 TAR=/usr/bin/bsdtar
-DATE=`date '+%Y-%m-%d'`
+DATE=`date '+%Y%m%d'`
 EXT=tar.gz
 OPT=cpzf
 SRC=`ls -a $HOME | egrep "^\.\w"`
-DEST=/mnt/sdc1/backups
+DEST=$backups
 ARCHIVE=$DEST/$USER-dot_$DATE.$EXT
 
 set -e
