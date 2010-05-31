@@ -1,0 +1,3 @@
+#!/bin/sh
+
+uni2ascii -B -y $1
