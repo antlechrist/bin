@@ -1,3 +1,3 @@
 #!/bin/sh
 
-markdown $1 | links -
+markdown $1 | lynx -stdin
