@@ -1,11 +1,9 @@
 #!/bin/sh
 #
 # ~/bin/spc
-#
 # Andrew Antle - http://antlechrist.org/
 #
 # Sync package cache on Arch.
-#
 
 RSYNC=/usr/bin/rsync
 LPATH=/var/cache/pacman/pkg/

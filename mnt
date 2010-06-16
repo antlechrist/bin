@@ -1,9 +1,7 @@
 #!/bin/sh
 #
 # ~/bin/mnt
-# 
 # Andrew Antle - http://antlechrist.org
-#
 
 set -e
 

@@ -1,22 +1,25 @@
 #!/bin/sh
 #
 # ~/bin/wax
-#
 # Andrew Antle - http://antlechrist.org/
 #
 # Wax on, wax off.
 # Dependencies: mutagen
-#
 
-FILE="*.mp3"
-FRAMES="MCDI,PRIV,TIPL,TXXX,TPOS,TLEN,COMM,TCON,PCNT,WCOM,WXXX,TLAN,TSSE,UFID,TDRL,TKEY,TPE2,TIT1,TCOM,TBPM,TPUB,TDTG,TENC"
+FRAMES1="COMM,MCDI,PCNT,PRIV,TBPM,TCOM,TCON,TDRL,TDTG,TENC,TIPL"
+FRAMES2="TIT1,TKEY,TLAN,TLEN,TPE2,TPOS,TPUB,TSSE,TXXX,UFID,WCOM,WXXX"
+TOTAL="$FRAMES1,$FRAMES2"
 
-do_cleanup() {
-	mid3v2 --delete-frames=$FRAMES $FILE
+mid3v2 --delete-frames=$TOTAL *.mp3
 
-	rm AlbumArt* *.ini *.db *.m3u *.nfo *.sfv *.mht .directory .folder.png 2>/dev/null
+rm AlbumArt* \
+   *.ini \
+   *.db \
+   *.m3u \
+   *.nfo \
+   *.sfv \
+   *.mht \
+   .directory \
+   .folder.png 2>/dev/null
 
-	mv Folder.jpg folder.jpg 2>/dev/null
-}
-
-do_cleanup
+mv Folder.jpg folder.jpg 2>/dev/null

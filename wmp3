@@ -1,7 +1,6 @@
 #!/bin/sh
 #
 # ~/bin/wmp3
-# 
 # Andrew Antle - http://antlechrist.org
 #
 # Dependencies: cdparanoia dol
@@ -27,7 +26,7 @@ case $1 in
 		do_rip
 		;;
 	*)
-		echo "usage: `basename $0` {-c|-r}"
+		echo "usage: `basename $0` [-c] [-r]"
 		exit 1
 		;;
 esac

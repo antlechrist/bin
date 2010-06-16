@@ -1,49 +1,25 @@
 #!/bin/sh
 #
 # ~/bin/apic
-# 
 # Andrew Antle - http://antlechrist.org
-#
 
-BACKUPDIR=/mnt/sdc1/backups/folder
-CONVERT=/usr/bin/convert
-ID3=/usr/bin/eyeD3
-IMAGE=folder.jpg
-TAGOPTIONS="--add-image=$IMAGE:FRONT_COVER"
+CONVERT_IMG=/usr/bin/convert
+IMG=folder.jpg
 
 set -e
 
-do_apic() {
-	$ID3 $TAGOPTIONS *.mp3
-}
+[ -f $IMG ] || \
+(echo "the album art must have the file name: $IMG" && exit 1)
 
-do_convert() {
-	$CONVERT $IMAGE -resize '200x200!' $IMAGE.new
-	mv $IMAGE $$-$IMAGE
-	mv $IMAGE.new $IMAGE
-	ls -lh
-}
+[ -x $CONV_IMG ] || \
+(echo "`basename $CONVERT_IMG` from imagemagick required" && exit 1)
 
-do_id3() {
-	$ID3 *.mp3
+$CONVERT_IMG $IMG -resize '200x200!' $IMG.new
+mv $IMG $$-$IMG
+mv $IMG.new $IMG
 
-	for i in *.jpg; do
-		mv -i $i $BACKUPDIR/$i.$$
-	done
+eyeD3 --add-image=$IMG:FRONT_COVER *.mp3
 
-	ls -lh
-}
-
-if [ ! -f $IMAGE ]; then
-	echo "the album art must have the file name: $IMAGE"
-	exit 1
-fi
-
-if [ ! -x $CONVERT ] || [ ! -x $ID3 ]; then
-	echo "`basename $ID3` and imagemagick are required"
-	exit 1
-fi
-
-do_convert
-do_apic
-do_id3
+for i in *.jpg; do
+	mv $i $backups/folder/$i.$$
+done

@@ -1,7 +1,6 @@
 #!/bin/sh
 #
 # ~/bin/pdf
-#
 # Andrew Antle - http://antlechrist.org/
 #
 # Open a pdf file or just the pdf program if no filename is given.

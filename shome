@@ -4,7 +4,7 @@
 # Andrew Antle - http://antlechrist.org
 
 RSYNC=/usr/bin/rsync
-DEST=$backups/$USER
+DEST=${DEST:-$backups}/$USER
 EXCLUDE_FILE=~/.exclude
 
 set -e

@@ -12,7 +12,7 @@ fi
 echo "$MD5SUM  $TARNAM" > $PRGNAM.MD5
 
 md5sum -c $PRGNAM.MD5 || exit 1
-mv -v $TARNAM $SRCDIR
-ln -sv $SRCDIR/$TARNAM .
+mv $TARNAM $SRCDIR
+ln -s $SRCDIR/$TARNAM .
 
-rm -fv $PRGNAM.MD5
+rm $PRGNAM.MD5

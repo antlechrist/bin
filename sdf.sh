@@ -6,11 +6,11 @@
 #     ls $HOME | grep "^\."
 
 TAR=/usr/bin/bsdtar
-DATE=`date '+%Y%m%d'`
+DATE=`/bin/date '+%Y%m%d'`
 EXT=tar.gz
 OPT=cpzf
-SRC=`ls -a $HOME | egrep "^\.\w"`
-DEST=$backups
+SRC=`/bin/ls -a $HOME | /bin/egrep "^\.\w"`
+DEST=${DEST:-$backups}
 ARCHIVE=$DEST/$USER-dot_$DATE.$EXT
 
 set -e
