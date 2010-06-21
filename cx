@@ -4,4 +4,4 @@
 # The parameters are passed on intact, without interpretation or expansion.
 # Each parameter in the argument list is seen as a separate word.
 # From The UNIX Programming Environment.
-chmod u+x "$@"
+chmod +x "$@"
