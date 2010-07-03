@@ -13,6 +13,7 @@ TOTAL="$FRAMES1,$FRAMES2"
 mid3v2 --delete-frames=$TOTAL *.mp3
 
 rm AlbumArt* \
+   ZuneArt* \
    *.ini \
    *.db \
    *.m3u \
