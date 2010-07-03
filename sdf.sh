@@ -1,22 +1,21 @@
-#!/bin/sh
+#!/bin/sh -e
 #
 # ~/bin/sdf
 # Andrew Antle - http://antlechrist.org
+#
 # Plan 9 would do
 #     ls $HOME | grep "^\."
 
-TAR=/usr/bin/bsdtar
-DATE=`/bin/date '+%Y%m%d'`
+TAR=bsdtar
+DATE=`date '+%Y%m%d'`
 EXT=tar.gz
 OPT=cpzf
-SRC=`/bin/ls -a $HOME | /bin/egrep "^\.\w"`
-DEST=${DEST:-$backups}
-ARCHIVE=$DEST/$USER-dot_$DATE.$EXT
-
-set -e
+SRC=`ls -a $HOME | egrep "^\.\w"`
+BACKUPDIR=${BACKUPDIR:-$b}
+ARCHIVE=$BACKUPDIR/$USER-dot_$DATE
 
 cd
-
-if test ! -f $ARCHIVE; then
-	$TAR $OPT $ARCHIVE $SRC
+if test ! -f $ARCHIVE.$EXT; then
+	$TAR $OPT $ARCHIVE.$EXT $SRC
+	$TAR tf $ARCHIVE.$EXT | sort > $ARCHIVE.txt
 fi
