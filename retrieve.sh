@@ -1,18 +1,21 @@
-#!/bin/sh
+#!/bin/sh -e
 
-. ./*.info
+CWD=$(pwd)
 
-SRCDIR=/home/ftp/pub/slackware/slackbuilds/source
-TARNAM=`basename $DOWNLOAD`
+. $CWD/*.info
 
-if test ! -e $TARNAM; then
-	wget $DOWNLOAD
+SRCDIR=/mnt/sdb4/pub/src
+TARNAM=$(basename $DOWNLOAD)
+
+if test ! -e $SRCDIR/$TARNAM; then
+	wget -c $DOWNLOAD
+	echo "$MD5SUM  $TARNAM" > $PRGNAM.MD5
+	md5sum -c $PRGNAM.MD5
+	mv $TARNAM $SRCDIR
 fi
 
-echo "$MD5SUM  $TARNAM" > $PRGNAM.MD5
+if test ! -L $CWD/$TARNAM; then
+	ln -s $SRCDIR/$TARNAM .
+fi
 
-md5sum -c $PRGNAM.MD5 || exit 1
-mv $TARNAM $SRCDIR
-ln -s $SRCDIR/$TARNAM .
-
-rm $PRGNAM.MD5
+rm -f $PRGNAM.MD5
