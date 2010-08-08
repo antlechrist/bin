@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+for i in *.flac; do
+	flac -d $i;
+done
+
+for i in *.wav; do
+	oggenc $i -q 7;
+done
+
+rm *.wav

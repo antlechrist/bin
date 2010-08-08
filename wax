@@ -6,20 +6,23 @@
 # Wax on, wax off.
 # Dependencies: mutagen
 
-FRAMES1="COMM,MCDI,PCNT,PRIV,TBPM,TCOM,TCON,TDRL,TDTG,TENC,TIPL"
-FRAMES2="TIT1,TKEY,TLAN,TLEN,TPE2,TPOS,TPUB,TSSE,TXXX,UFID,WCOM,WXXX"
+FRAMES1="COMM,GEOB,MCDI,PCNT,PRIV,TBPM,TCOM,TCON,TCOP,TDRL,TDTG,TENC,TIPL"
+FRAMES2="TIT1,TKEY,TLAN,TLEN,TMED,TPE2,TPOS,TPUB,TSSE,TXXX,UFID,WCOM,WXXX"
 TOTAL="$FRAMES1,$FRAMES2"
 
 mid3v2 --delete-frames=$TOTAL *.mp3
 
 rm AlbumArt* \
    ZuneArt* \
+   *.CUE \
+   *.LOG \
    *.ini \
    *.db \
    *.m3u \
    *.nfo \
    *.sfv \
    *.mht \
+   *.txt \
    .directory \
    .folder.png 2>/dev/null
 

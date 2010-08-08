@@ -1,0 +1,7 @@
+#!/bin/sh
+
+FONT='-fn -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*'
+COLORS='-nb #101010 -nf #757575 -sb #222222 -sf #999999'
+DMENU="dmenu $FONT $COLORS"
+
+exe=`dmenu_path | $DMENU ${1+"$@"}` && exec $exe
