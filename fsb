@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Find a SlackBuild. `sb` is defined in the environment.
+
+#du -a $sb | grep $1 | awk '{ print $2 }' | \
+	#sed 's|/mnt/sdb4/pub/slackware/slackbuilds/13.1/||'
+#	sed "s|$sb/||"
+
+find $sb -name $1 | sed "s|$sb/||"
