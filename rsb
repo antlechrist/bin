@@ -1,0 +1,21 @@
+#!/bin/sh
+
+VERSION=${VERSION:-13.1}
+TOPDIR="/mnt/sdb4/pub/slackware"
+# Official SlackBuilds repository.
+#RSYNCURL="rsync://rsync.slackbuilds.org/slackbuilds"
+# New fast mirror courtesy of Alien and an anonymous donor. Thanks!
+RSYNCURL="rsync://taper.alienbase.nl/mirrors/slackbuilds.org"
+
+echo "Syncing version '$VERSION' ..."
+
+if [ ! -d ${TOPDIR}/slackbuilds/$VERSION ]; then
+	echo "Target directory ${TOPDIR}/slackbuilds/$VERSION doesn't exist!"
+	exit 1
+fi
+
+cd ${TOPDIR}/slackbuilds/$VERSION
+rsync $1 -avz --delete ${RSYNCURL}/$VERSION/ .
+
+chown -R root:wheel .
+fichg
