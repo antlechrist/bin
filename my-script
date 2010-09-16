@@ -1,0 +1,12 @@
+#!/bin/ash
+
+SHELL=/bin/ash
+
+script swipl.sct
+
+# Afterwards, run:
+#
+#     $ cat swipl.sct | col -b > swipl-copy.sct
+#
+# to remove all the control characters and crap.
+# It still sucks donkey balls, though.

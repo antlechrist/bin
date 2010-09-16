@@ -1,0 +1,18 @@
+#!/bin/sh
+
+scons \
+	useALSA=1 \
+	useJack=1 \
+	pythonVersion=2.6 \
+	buildPythonOpcodes=1 \
+	dynamicCsoundLibrary=1 \
+	buildStkOpcodes=1 \
+	buildUtilities=1 \
+	buildTclsound=1 \
+	buildInterfaces=1 \
+	buildLuaWrapper=1 \
+	buildPythonWrapper=1 \
+	tclversion=8.4 \
+	buildCsoundAC=1 \
+	buildPDClass=1 \
+	$1

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# $1:          The synth I want to use, e.g. -mini
+# -jack:       Use jack for audio ouput
+# -midi alsa:  Use the ALSA section in QJackCtl, so I can connect to seq24.
+startBristol $1 -jack -midi alsa
